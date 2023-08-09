@@ -6,7 +6,7 @@ class Database
     {
         try
         {
-            $pdo = new PDO("mysql:dbname=EXAMPLE;host=127.0.0.1", "", "");
+            return $pdo = new PDO("mysql:dbname=mvc;host=127.0.0.1", "root", "Prodigy@2023");
         }
         catch (PDOException $e)
         {

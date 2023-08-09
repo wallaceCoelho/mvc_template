@@ -5,4 +5,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteRule ^(.+)$ index.php?url=$1 [QSA]
 
-Options -Indexes
+#Options -Indexes

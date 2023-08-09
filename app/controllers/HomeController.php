@@ -2,18 +2,18 @@
 
 class HomeController extends RenderView
 {
-    private $users;
+    private $userService;
 
     public function __construct()
     {
-        $this->users = new UserModel();
+        $this->userService = new UserService();
     }
 
     public function index()
     {
         $this->view('home', [
             'title' => 'Home Page',
-            'user' => $users->fetch()
+            'user' => $this->userService->show()
         ]);
     }
 }
