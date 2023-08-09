@@ -23,11 +23,17 @@ class UserController extends RenderView
 
     public function store($request)
     {
-        if($request->rowCount() > 0)
+        if(isset($request))
         {
             $storeResponse = $this->userService->store($request);
-
-            echo $storeResponse == true ? "Cadastrado com sucesso!" : "Erro ao cadastrar!";
+            
+            echo $storeResponse ? "Cadastrado com sucesso!" : "Erro ao cadastrar!";
         }
+        else echo "Erro com os valores dos campos";
+    }
+
+    public function login($request)
+    {
+        var_dump($request);
     }
 }

@@ -15,6 +15,10 @@ spl_autoload_register(function($file){
     {
         require_once __DIR__."/app/services/$file.php";
     }
+    else if(file_exists(__DIR__."/app/middlewares/$file.php"))
+    {
+        require_once __DIR__."/app/middlewares/$file.php";
+    }
 });
 
 $core = new Core();

@@ -2,5 +2,6 @@
 
 $routes = [
     '/' => 'HomeController@index',
-    '/users' => 'UserController@show'
+    '/signin' => 'UserController@signin',
+    '/login/{$request}' =>'UserController@login'
 ];
