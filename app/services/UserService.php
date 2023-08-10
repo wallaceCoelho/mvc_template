@@ -30,4 +30,27 @@ class UserService
             'password' => $this->hash->encrypt($request['password'])
         ]);
     }
+
+    public function sessionIn($request)
+    {
+        if($request['password'] == "" || $request['email'] == "")
+            return "Campos vazios";
+            
+        $response = $this->userModel->authtentication(
+            $request['email'], 
+            $this->hash->encrypt($request['password']));
+
+        if($response['id'] != "")
+        {
+            session_start();
+            $_SESSION['id'] = $response['id'];
+            $_SESSION['email'] = $response['email'];
+            
+            return "Login com sucesso";
+        }
+        else 
+        {
+            return "Erro ao fazer o login";
+        }
+    }
 }

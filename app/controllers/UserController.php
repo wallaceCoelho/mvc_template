@@ -34,6 +34,8 @@ class UserController extends RenderView
 
     public function login($request)
     {
-        var_dump($request);
+        $response = $this->userService->sessionIn($request);
+
+        echo $response;
     }
 }
